@@ -14,6 +14,15 @@ require 'app.rb'
     end
   end
 
+  feature 'Hit points' do
+    scenario 'viewing hit points' do
+      visit('/')
+      fill_in :player_1_name, with: 'Andrew'
+      fill_in :player_2_name, with: 'Steve'
+      click_button 'Submit'
+      expect(page).to have_content 'Andrew vs. Steve: 10HP'
+    end
+  end
 
 
 

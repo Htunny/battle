@@ -1,7 +1,10 @@
 require 'sinatra/base'
 require_relative 'player'
+require_relative 'game'
 
 class Battle < Sinatra::Base
+
+   $game = Game.new
 
   enable :sessions
 
@@ -25,7 +28,7 @@ class Battle < Sinatra::Base
   end
 
   post '/fight' do
-     $player_2.gets_attacked
+    $game.attack($player_1, $player_2)
     redirect '/attack'
   end
 

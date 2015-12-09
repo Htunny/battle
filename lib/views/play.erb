@@ -1,8 +1,9 @@
 <h1> FIGHT! </h1>
-<%= @player_1_name %> vs. <%= @player_2_name %><%= @player_2_points %>
+<%= @player_1_name %> HP:<%= @hp1 %> vs. <%= @player_2_name %> HP:<%= @hp2 %>
 <br>
 <br>
 <div>
 <%= @player_1_name %> surprised <%= @player_2_name %> and attacks first!
 <form action="/fight" method="post">
 <input type="submit" value="Attack">
+</form>

@@ -1,6 +1,6 @@
 require 'player'
 
-describe Player do
+describe Player do  
 
   subject(:player) {described_class.new('Andy')}
 

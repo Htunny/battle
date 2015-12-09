@@ -7,7 +7,7 @@ require 'app.rb'
   feature 'Enter names' do
     scenario 'submitting names' do
       sign_in_and_play
-      expect(page).to have_content 'Andrew vs. Steve'
+      expect(page).to have_content 'Andrew HP:50 vs. Steve HP:50'
     end
   end
 
@@ -17,7 +17,7 @@ require 'app.rb'
   feature 'Hit points' do
     scenario 'viewing hit points' do
       sign_in_and_play
-      expect(page).to have_content 'Andrew vs. Steve: 10HP'
+      expect(page).to have_content 'Steve HP:50'
     end
   end
 
@@ -31,11 +31,19 @@ require 'app.rb'
       click_button("Attack")
       expect(page).to have_content 'Andrew used standing kick against Steve'
     end
-  end
 #
 # As Player 1,
 # So I can start to win a game of Battle,
 # I want my attack to reduce Player 2's HP by 10
+
+   scenario 'attack should reduce Player 2 HP by 10' do
+     sign_in_and_play
+     click_button("Attack")
+     click_button("OK")
+     expect(page).to have_content 'Steve HP:40'
+   end
+ end
+
 #
 # As two Players,
 # So we can continue our game of Battle,

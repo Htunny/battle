@@ -6,34 +6,32 @@ require 'app.rb'
 
   feature 'Enter names' do
     scenario 'submitting names' do
-      visit('/')
-      fill_in :player_1_name, with: 'Andrew'
-      fill_in :player_2_name, with: 'Steve'
-      click_button 'Submit'
+      sign_in_and_play
       expect(page).to have_content 'Andrew vs. Steve'
     end
   end
 
+  # As Player 1,
+  # So I can see how close I am to winning
+  # I want to see Player 2's Hit Points
   feature 'Hit points' do
     scenario 'viewing hit points' do
-      visit('/')
-      fill_in :player_1_name, with: 'Andrew'
-      fill_in :player_2_name, with: 'Steve'
-      click_button 'Submit'
+      sign_in_and_play
       expect(page).to have_content 'Andrew vs. Steve: 10HP'
     end
   end
 
-
-
-#
-# As Player 1,
-# So I can see how close I am to winning
-# I want to see Player 2's Hit Points
-#
 # As Player 1,
 # So I can win a game of Battle,
 # I want to attack Player 2, and I want to get a confirmation
+
+  feature 'Attack' do
+    scenario 'get confirmation of attack' do
+      sign_in_and_play
+      click_button("Attack")
+      expect(page).to have_content 'Andrew used standing kick against Steve'
+    end
+  end
 #
 # As Player 1,
 # So I can start to win a game of Battle,

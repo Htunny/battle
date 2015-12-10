@@ -3,7 +3,16 @@
 <br>
 <br>
 <div>
-<%= @player_1_name %> surprises <%= @player_2_name %> and attacks first!
-<form action="/fight" method="post">
-<input type="submit" value="Attack">
-</form>
+  <% if $game.even_move == true %>
+    <%= @player_1_name %> surprises <%= @player_2_name %> and attacks first!
+    <form action="/fight" method="post">
+    <input type="submit" value="Attack">
+    </form>
+<div>
+  <% elsif $game.even_move == false %>
+    <%= @player_2_name %> gets up and throws a punch at <%= @player_1_name %>
+    <form action="/fight_back" method="post">
+    <input type="submit" value="Retaliate">
+    </form>
+  <% end %>
+</div>

@@ -35,5 +35,19 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+  post '/fight_back' do
+    $game.attack($game.player_2, $game.player_1)
+    redirect '/retaliate'
+  end
+
+  get '/retaliate' do
+    @player_1_name = $game.player_1.name
+    @player_2_name = $game.player_2.name
+    erb :retaliate
+  end
+
+
+
+
   run! if app_file == $0
  end

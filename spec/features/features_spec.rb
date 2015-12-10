@@ -62,7 +62,7 @@ Capybara.default_driver = :selenium
      click_button("Attack")
      click_button("OK")
      game.even_move == false
-     click_button("Retaliate")
+     click_button("Attack")
      expect(page).to have_content 'Steve smacks Andrew in the face!'
    end
 
@@ -71,11 +71,13 @@ Capybara.default_driver = :selenium
      click_button("Attack")
      click_button("OK")
      game.even_move == false
-     click_button("Retaliate")
+     click_button("Attack")
      click_button("OK")
      expect(page).to have_content 'Andrew HP:40'
    end
  end
+
+
  # describe '#even_move' do
  #   it 'alternates turns with even_move' do
  #     sign_in_and_play
